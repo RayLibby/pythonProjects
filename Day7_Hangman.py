@@ -10,4 +10,16 @@ word_list = ["aardvark", "baboon", "camel"]
 
 import random 
 
-print(random.choice(word_list))
+chosen_word = random.choice(word_list)
+guess = input("Guess a letter: ")
+
+
+is_letter_in_word = ""
+if guess in chosen_word:
+ is_letter_in_word = "Yes"
+else: 
+ is_letter_in_word = "No"
+
+print(f"You guessed: {guess}")
+print(f"Is your letter in the word? {is_letter_in_word}")
+print(f"The chosen word: {chosen_word}")
