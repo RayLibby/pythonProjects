@@ -1,7 +1,16 @@
 
 import random 
+from Day7_Hangman_Art import stages
+from Day7_Hangman_Art  import logo 
+from Day7_Hangman_Words import word_list
+
+                                              
+
+
+print(logo)
+
 # Load word list with random words
-word_list = ["aardvark", "baboon", "camel"]
+
 
 # Select a random word from the word list
 chosen_word = random.choice(word_list)
@@ -18,16 +27,16 @@ for testing in range(0,chosen_word_length):
     display.append('_')
     
 # Tries equals the number of failed guesses the player is allowed
-tries = 7   
+lives = 6   
  
 # The main game loop and logic: 
-while '_' in display and tries > 0:
+while '_' in display and lives > 0:
 
     position = 0 
   
     guess = input("Guess a letter: ").lower()
     if guess not in chosen_word:
-        tries -= 1
+        lives -= 1
         
     for letter in chosen_word:
 
@@ -42,13 +51,13 @@ while '_' in display and tries > 0:
         position +=1
         
         # For Debugging:
-        print(display)
-        print(tries)
-
+    print(f'Number of Lives Left: {lives}')
+    print(display)  
+    print(stages[lives])
         
 # If player guesses all the correct laters while still having available tries, then the player Wins!   
 # else the player loses
-if '_' not in display and tries > 0:
+if '_' not in display and lives > 0:
     print('You Won!!!')
 else:
     print('You Lose')    
