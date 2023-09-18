@@ -31,12 +31,19 @@ lives = 6
  
 # The main game loop and logic: 
 while '_' in display and lives > 0:
-
+    # Used to cycle through each position in the display list    
     position = 0 
-  
+    # Player's input
     guess = input("Guess a letter: ").lower()
+    
+    # If player guesses wrong they lose a life
     if guess not in chosen_word:
         lives -= 1
+        print(f'You guessed {guess}, that is not in the word. You lose a life.')
+    
+    # If a player guesses the same correct letter twice, no points deducted    
+    if guess in display:
+        print(f"You've already guess {guess} ")    
         
     for letter in chosen_word:
 
@@ -50,7 +57,7 @@ while '_' in display and lives > 0:
         # Used to cycle through each position in the display list    
         position +=1
         
-        # For Debugging:
+        # For Debugging: indent these parameters so that they are inside the main for loop
     print(f'Number of Lives Left: {lives}')
     print(display)  
     print(stages[lives])
