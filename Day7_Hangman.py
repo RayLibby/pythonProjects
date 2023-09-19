@@ -3,8 +3,7 @@ import random
 from Day7_Hangman_Art import stages
 from Day7_Hangman_Art  import logo 
 from Day7_Hangman_Words import word_list
-
-                                              
+import os                     
 
 
 print(logo)
@@ -35,6 +34,7 @@ while '_' in display and lives > 0:
     position = 0 
     # Player's input
     guess = input("Guess a letter: ").lower()
+    os.system('clear')
     
     # If player guesses wrong they lose a life
     if guess not in chosen_word:
@@ -67,5 +67,5 @@ while '_' in display and lives > 0:
 if '_' not in display and lives > 0:
     print('You Won!!!')
 else:
-    print('You Lose')    
+    print('You Lose!!!')    
              
